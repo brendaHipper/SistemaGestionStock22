@@ -1,0 +1,106 @@
+﻿@using Stock.Core.Entidades;
+@model RegistroViewModel
+
+@{
+    ViewData["Title"] = "Registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var login = "~/images/Login.jpg";
+}
+
+<header style="height: 80px;">
+    <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Usuario" asp-action="Login">GestionStock.WebMVC</a>
+            <!-- Agrega el botón del menú hamburguesa -->
+            <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+
+<div class="login-container">
+    <div class="login-info">
+        <h1>Crea una cuenta</h1>
+        <p>Es rápido y fácil.</p>
+        <form asp-action="Registro" method="post">
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label">Ingrese Usuario</label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Ingrese una Contraseña</label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label">Repetir Contraseña</label>
+                <input asp-for="ConfirmPassword" class="form-control" type="password" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <a href="@Url.Action("Login", "Usuario")" class="text-primary">¿Ya tienes una cuenta?</a>
+            <div class="form-group" style="text-align: right;">
+                <button type="submit" class="btn btn-tertiary btn-lg" style="width: 140px;">
+                    Registro
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="login-image">
+        <img src="@Url.Content(login)" alt="Login Image" width="400" />
+    </div>
+</div>
+
+
+
+<style>
+    /* Estilo base para HTML */
+    html {
+        font-size: 14px;
+        position: relative;
+        min-height: 100%;
+    }
+
+    .login-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px;
+        background-color: #003366; /* Azul oscuro como color primario */
+
+        border-top-left-radius: 10px; /* Esquina superior izquierda  */
+        border-top-right-radius: 10px; /* Esquina superior derecha  */
+        border-bottom-left-radius: 10px; /* Esquina inferior izquierda  */
+        border-bottom-right-radius: 10px; /* Esquina inferior derecha  */
+    }
+
+    .form-group label {
+        display: block;
+        color: #003366; /* Azul oscuro para las etiquetas */
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #003366; /* Color del borde por defecto */
+    }
+
+        .form-group input:focus {
+            outline: none; /* Elimina el borde de enfoque predeterminado */
+            box-shadow: 0 0 0 2px #009688, /* Espacio interno */
+            0 0 0 4px #FFFFFF, /* Borde intermedio */
+            0 0 0 4.5px #003366; /* Borde más externo */
+        }
+
+    /* Estilo para los enlaces sin subrayado */
+    .text-primary {
+        color: blue;
+        text-decoration: none; /* Elimina el subrayado */
+    }
+
+</style>

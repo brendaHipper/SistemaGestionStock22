@@ -1,0 +1,49 @@
+﻿@using Stock.Core.Entidades;
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var login = "~/images/Login.jpg";
+}
+
+<header style="height: 80px;">
+    <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Usuario" asp-action="Login">GestionStock.WebMVC</a>
+            <!-- Agrega el botón del menú hamburguesa -->
+            <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<div class="login-container">
+    <div class="login-info">
+        <h1>Bienvenido</h1>
+        <p>Stock Management System</p>
+        <form asp-action="Login" method="post">
+            <div class="form-group">
+                <label asp-for="Nombre" class="txtUsuario">Ingrese Usuario</label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="txtUsuario">Ingrese una Contraseña</label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="text-align: right;">
+                <button type="submit" class="btn btn-tertiary btn-lg" style="width: 140px;">
+                    Login
+                </button>
+                <a asp-action="Registro" asp-controller="Usuario" class="btn btn-primary btn-lg" style="width: 140px;" />Registrarse</a>
+            </div>
+        </form>
+    </div>
+    <div class="login-image">
+        <img src="@Url.Content(login)" alt="Login Image" width="400" />
+    </div>
+</div>
+

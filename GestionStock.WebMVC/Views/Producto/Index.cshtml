@@ -1,0 +1,80 @@
+﻿@using Stock.Core.Entidades;
+@model List<Producto>
+@{
+    ViewData["Title"] = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Producto" asp-action="Index">GestionStock.WebMVC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Producto" asp-action="Index">Stock</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Compra" asp-action="Index">Compras</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Venta" asp-action="Index">Ventas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Logout">Cerrar Sesión</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="dashboard-background ">
+
+    <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <a class="btn btn-primary btn-lg" style="width: 200px;" asp-action="CrearProducto" asp-controller="Producto">Nuevo Producto</a>
+        </div>
+        <h5>Listado de Productos</h5>
+        <hr />
+        <div class="card-body">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ProductoId</th>
+                        <th>Nombre</th>
+                        <th>Categoria</th>
+                        <th>Habilitado</th>
+                        <th>Stock</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var producto in Model)
+                    {
+                        <tr>
+                            <td>@producto.ProductoId</td>
+                            <td>@producto.Nombre</td>
+                            <td>@producto.Categoria.Nombre</td>
+                            <td>@producto.Habilitado</td>
+                            <td>@producto.Stock</td>
+                            <td>
+                                <a class="btn btn-tertiary btn-lg" style="width: 140px;" asp-action="EditarProducto" asp-controller="Producto" asp-route-id="@producto.ProductoId">Editar</a>
+                                <a class="btn btn-tertiary btn-lg btn-red" style="width: 140px;" asp-action="EliminarProducto" asp-controller="Producto" asp-route-id="@producto.ProductoId">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+

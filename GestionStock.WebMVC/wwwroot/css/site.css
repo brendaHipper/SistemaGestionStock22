@@ -1,0 +1,699 @@
+/* Estilo base para HTML */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+
+/* Estilo para pantallas medianas y grandes*/
+@media (min-width: 768px) {
+
+    html {
+        font-size: 16px;
+    }
+
+    .login-container {
+        flex-direction: row; /* Asegura que los elementos estén uno al lado del otro */
+    }
+
+    .login-info {
+        flex-basis: 50%;
+        height: 500px; /* Ajusta esta altura para que coincida con la altura deseada */
+        background-color: #f2f2f2; /* Gris claro como color secundario */
+        padding: 40px;
+        border-radius: 10px;
+        border-top-left-radius: 10px; /* Esquina superior izquierda redondeada */
+        border-top-right-radius: 0; /* Esquina superior derecha recta */
+        border-bottom-left-radius: 10px; /* Esquina inferior izquierda redondeada */
+        border-bottom-right-radius: 0; /* Esquina inferior derecha recta */
+    }
+
+    .login-image {
+        flex-basis: 50%; /* Asigna a cada elemento la mitad del ancho del contenedor */
+        height:500px; /* Ajusta esta altura para que coincida con la altura deseada */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .login-image img {
+        flex-basis: 50%;
+        max-width: 100%; /* Esto asegura que la imagen no sea más ancha que su contenedor */
+        height: auto; /* Esto mantiene la proporción de la imagen */
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px; /* Esquina inferior derecha redondeada */
+        width: 100%; /* Esto permite que la imagen se ajuste al nuevo tamaño del contenedor lene el ancho del contenedor*/
+        max-height: 200px; /* Puedes ajustar esto según sea necesario */
+        min-height: 100%; /* Establece una altura mínima para mantener la proporción */
+    }
+}
+
+
+/* Estilo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-info {
+        flex-basis: 50%;
+        background-color: #f2f2f2; /* Gris claro como color secundario */
+        padding: 40px;
+        border-radius: 10px;
+        
+        height: auto; /*Esto permite que la altura se ajuste al contenido */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        min-height: 200px; /* Establece una altura mínima */
+        border-top-left-radius: 10px; /* Esquina superior izquierda redondeada */
+        border-top-right-radius: 10px; /* Esquina superior derecha redondeada */
+        border-bottom-left-radius: 0; /* Esquina inferior izquierda recta */
+        border-bottom-right-radius: 0; /* Esquina inferior derecha recta */
+    }
+
+    .login-image {
+        flex-basis: auto;
+        width: 100%; /* Ocupa todo el ancho disponible */
+        max-height: 200px; /* Altura máxima para la imagen */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .login-image img {
+        flex-basis: 50%;
+        max-width: 100%; /* Esto asegura que la imagen no sea más ancha que su contenedor */
+        height: auto; /* Esto mantiene la proporción de la imagen */
+
+        width: 100%; /*Asegura que la imagen llene el ancho del contenedor */
+        max-height: 200px; /*Establece una altura máxima para la imagen*/
+        border-bottom-left-radius: 10px; /* Esquina inferior izquierda redondeada */
+        border-bottom-right-radius: 10px; /* Esquina inferior derecha redondeada */
+    }
+    .user-avatar {
+        width: 30px; /* Tamaño más pequeño para pantallas pequeñas */
+    }
+}
+
+
+/*Nuevos botones*/
+    /* Cambiar el color del texto a blanco para los botones primario y secundario */
+    .btn btn-primary btn-lg, .btn-secondary btn-lg {
+    color: #fff; /* Texto blanco */
+}
+
+/* Cambiar el color del texto al color principal al pasar el mouse */
+.btn-primary:hover {
+    background-color: #007bff; /* Color de fondo azul para hover */
+    color: #333; /* Cambiar el texto a un color oscuro para contraste */
+}
+
+.btn-secondary:hover {
+    color: #333; /* Cambiar el texto a un color oscuro para contraste */
+}
+
+.btn-secondary btn-lg:hover {
+    background-color: #6c757d; /* Color de fondo gris para hover */
+    color: #333; /* Cambiar el texto a un color oscuro para contraste */
+}
+
+
+/* Estilo personalizado para el botón terciario */
+.btn-tertiary {
+    background-color: #009688; /* color verde personalizado */
+    color: #fff; /* Texto blanco */
+}
+
+/* Estilo para el estado hover del botón terciario */
+.btn-tertiary:hover {
+    background-color: #00897b; /* Un tono más oscuro para el hover */
+}
+
+.btn-tertiary.btn-red {
+    background-color: #FF6961;
+    
+}
+
+/*submit*/
+button {
+    background-color: #009688; /* Verde esmeralda como color de acento */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+    width: 140px; /* Ancho fijo para todos los botones */
+    height: 50px; /* Alto fijo para todos los botones */
+}
+
+.form-control {
+    margin-bottom: 4px; /* Ajusta según tus preferencias */
+}
+
+
+/* Estilo para el foco de botones y controles de formulario */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/*Microinteracciones: Se agrega interacciones simples como animaciones al pasar el cursor sobre los botones.*/
+.btn:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+
+/* Estilo para el cuerpo del documento */
+body {
+    margin-bottom: 60px;
+}
+
+/* Estilos para la información del usuario */
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    border-radius: 50%; /* Hace que la imagen del avatar sea circular */
+    width: 50px; /* Ajusta el tamaño del avatar */
+    height: auto;
+    margin-left: 10px;
+}
+
+.user-info span {
+    font-weight: bold;
+}
+
+/* Estilos para el título del contenedor */
+.container h2 {
+    font-size: 24px; /* Reduce el tamaño de la fuente */
+    font-weight: normal; /* Estilo de fuente normal, no negrita */
+    color: #333; /* Color de texto oscuro para un aspecto más sutil */
+    margin-bottom: 10px; /* Espacio debajo del título */
+    text-align: left; /* Alineación a la izquierda */
+}
+
+/*Estilo de pestañas*/
+
+/* Estilo por efecto de las pestañas */
+.tab {
+    background-color: transparent; /* Sin color de fondo */
+    padding: 10px 20px; /* Espaciado para la pestaña */
+    position: relative; /* Para posicionar la línea de subrayado */
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+}
+
+/* Línea de subrayado para pestañas inactivas */
+.tab::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #f2f2f2; /* Gris claro */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: background-color 0.3s; /* Transición suave al cambiar de color */
+}
+
+/* Estilo de la pestaña al pasar el mouse por encima */
+.tab:hover::after {
+    background-color: #009688; /* Verde esmeralda */
+}
+
+/* Estilo de la pestaña activa */
+.tab.active::after {
+    background-color: #003366; /* Azul oscuro */
+}
+
+
+/* Estilo para las pestañas con margen */
+.nav-item {
+    margin-right: 10px; /* Añade un margen a la derecha de cada pestaña */
+}
+
+/* El último elemento no tiene que tener margen a la derecha */
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+/* Estilo por defecto de las pestañas */
+.nav-item .nav-link {
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    padding: 10px 20px; /* Espaciado para la pestaña */
+}
+
+/* Línea de subrayado para pestañas inactivas */
+.nav-item .nav-link::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #f2f2f2; /* Gris claro */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: background-color 0.3s; /* Transición suave al cambiar de color */
+}
+
+/* Estilo de la pestaña al pasar el mouse por encima */
+.nav-item .nav-link:hover::after {
+    background-color: #009688; /* Verde esmeralda */
+}
+
+/* Estilo de la pestaña activa */
+.nav-item .nav-link.active::after {
+    background-color: #003366; /* Azul oscuro */
+}
+
+/* Estilo para la barra de busqueda*/
+#searchBar {
+    width: 30%; /* Ajusta según el ancho deseado */
+    height: 2.5rem; /* Ajusta la altura para que coincida con los select */
+    padding: 0.5rem; /* Añade algo de relleno para que el texto no esté pegado a los bordes */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño final */
+    border-radius: 10px; 
+    border: 1px solid #003366; /* Añade un borde para mayor contraste */
+}
+
+select {
+    height: 2.5rem; /* Asegúra de que todos los select tengan la misma altura */
+    border-radius: 10px;
+    border: 1px solid #3366; /* Añade un borde para mayor contraste */
+}
+
+
+/* "submit" Estilo para botones o enlaces que requieran atención */
+.button-accent {
+    background-color: #009688; /* Verde esmeralda como color de acento */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* para ponerle un fondo personalizado a la home del usuario*/
+.dashboard-background {
+    background-size: contain; /*para que se vea toda la imagen */
+    position: relative;
+    border-radius: 10px; /* Cambia el valor según tus preferencias */
+    min-height: 500px; /* asegura que el contenedor nunca sea más pequeño que un cierto valor*/
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+    background: url('path-to-your-image.jpg') no-repeat center center; /* Añade una imagen de fondo elevante para el contenedor principal del dashboard*/
+    background-size: cover;
+}
+
+.dashboard-section {
+    justify-content: center; /* Centra los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    width: 30%;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dashboard-section:nth-child(1) .table thead th {
+    color: white; /* Cambia el color del texto a blanco */
+}
+
+/* Aplicando colores a las secciones del dashboard */
+.dashboard-section:nth-child(1) {
+    background-color: #003366; /* Azul oscuro como color primario */
+    color: #ffffff; /* Texto blanco para mejor contraste */
+}
+
+/* Estilo para el título h2 dentro del primer contenedor */
+.dashboard-section:nth-child(1) h2 {
+    color: white; /* Cambia el color del texto a blanco para mejor contraste */
+}
+
+
+.dashboard-section:nth-child(2) {
+    background-color: #cccccc; /* Un gris más oscuro para mayor contraste */
+    color: #333333; /* Texto oscuro para mejor legibilidad */
+}
+
+.dashboard-section:nth-child(2) .table thead th {
+    color: #003366; /* Cambia el color del texto a blanco */
+}
+
+.dashboard-section:nth-child(3) {
+    background-color: #009688; /* Verde esmeralda como color de acento */
+    color: #ffffff; /* Texto blanco para mejor contraste */
+}
+
+.dashboard-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.dashboard-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-section ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dashboard-section ul li:last-child {
+    border-bottom: none;
+}
+
+/* "submit" Estilos para botones */
+.button-accent {
+    background-color: #009688; /* Verde esmeralda como color de acento */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 140px; /* Ancho fijo para todos los botones */
+    height: 50px; /* Alto fijo para todos los botones */
+    text-align: center; /* Asegura que el texto esté centrado */
+    line-height: 50px; /* Centra el texto verticalmente */
+    display: inline-flex; /* Usa inline-flex para alinear el texto dentro del botón */
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: center; /* Centra el texto horizontalmente */
+}
+
+#productForm input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px solid #009688; /* Establece el grosor y el color del borde */
+}
+
+#productForm input[type="text"]:focus {
+    outline-color: #009688; /* Cambia el color del borde de enfoque */
+    box-shadow: 0 0 0 2px #f2f2f2; /* Crea un borde interno simulado con sombra de caja */
+}
+
+
+/* Estilos para el pop-up */
+#confirmacionPopup, #exitoPopup, #errorPopUp {
+    position: fixed; /* Cambiado de fixed a relative para el posicionamiento interno */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #003366; /* Azul oscuro como color primario */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    z-index: 1000;
+    padding: 20px;
+    padding-top: 40px;
+}
+
+    /* Estilos para el pop-up de confirmación */
+#confirmacionPopup {
+    width: 350px; /* Ancho del pop-up de Exito */
+    height: 350px; /* Alto del pop-up de Exito */
+}
+
+/* Estilos para los botones dentro del pop-up */
+#confirmacionPopup .button-accent {
+    display: flex; /* Establece el contenedor del pop-up como un contenedor Flexbox*/
+    flex-direction: column; /*Asegúrate de que los elementos se apilen verticalmente*/
+    align-items: center; /* Centra los elementos horizontalmente*/
+    justify-content: center; /*Centra los elementos hijos verticalmente*/
+    margin-top: 20px; /* Añade un margen superior si es necesario */
+    margin: auto; /* Centra el botón horizontalmente */
+}
+
+/* Estilos para el pop-up de Mensaje de carga exitosa y  carga erronea*/
+#exitoPopup, #errorPopUp {
+    padding: 20px;
+    width: 400px; /* Ancho del pop-up de Exito */
+    height: 400px; /* Alto del pop-up de Exito */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el espacio entre los elementos internos */
+    align-items: center; /* Centra el contenido horizontalmente */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Estilos para los botones dentro del pop-up carga erronea*/
+    #exitoPopup .button-accent {
+        display: flex; /*Establece el contenedor del pop-up como un contenedor Flexbox */
+        flex-direction: column; /*Asegúrate de que los elementos se apilen verticalmente*/
+        align-items: center; /*Centra los elementos horizontalmente */
+        justify-content: center; /* Centra los elementos hijos verticalmente*/
+        margin-top: 20px; /*Añade un margen superior si es necesario */
+        margin-bottom: 20px; /*Añade un margen inferior para alinear el botón abajo*/
+        margin: auto; /* Centra el botón horizontalmente */
+    }
+
+/*Estilos para cambiar el color del texto del popUp a blanco */
+#confirmacionPopup p, #exitoPopup p, #errorPopUp p {
+    color: white; /*Esto hará que el texto sea blanco */
+    margin-bottom: 100px;
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+
+/*Estilos para cambiar el color del texto del popUp a blanco */
+#confirmacionPopup label {
+    color: white; /* Esto cambiará el color del texto de los labels a blanco */
+}
+
+
+/* Estilos específicos para el botón de cerrar */
+.close-button {
+    position: absolute;
+    top: 0px; /* Ajusta la distancia desde la parte superior del pop-up */
+    right: 10px; /* Ajusta la distancia desde la parte derecha del pop-up */
+    padding: 10px; /* Espacio adicional para facilitar la interacción */
+    margin: 0; /* Asegúrate de que no haya márgenes que afecten la posición */
+    background-color: transparent; /* Hace que el fondo sea transparente */
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer;
+    width: auto; /* Permite que el tamaño se ajuste al contenido */
+    height: auto; /* Permite que el tamaño se ajuste al contenido */
+    padding: 5px 5px; /* Padding más pequeño para un botón más pequeño */
+}
+
+.containedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los elementos */
+    justify-content: space-between;
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    height: 100%; /* Opcional: Ajusta la altura del contenedor */
+    justify-content: flex-start; /* Justifica los elementos a la izquierda */
+}
+
+
+.contenedor .form-check-input {
+    align-self: flex-start; /* Alinea el checkbox a la izquierda */
+}
+
+/* Estilo para los botones */
+.contenedor button,
+.contenedor a {
+    width: 140px;
+    height: 50px;
+}
+
+.contenedor > * {
+    margin-bottom: 20px; /* Espacio entre elementos */
+}
+
+/*ajuste de posicion de botones*/
+.button-container {
+    position: absolute;
+    bottom: 20px;  /*Ajusta la distancia desde el fondo */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+}
+
+
+/* alinea los botones a la derecha*/
+.button-container {
+    text-align: right;
+}
+
+/* Estilos generales del cuerpo del documento */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal del dashboard */
+.dashboard-container {
+    display: flex;
+    justify-content: space-around; /* Esto mantendrá las secciones separadas equitativamente */
+    padding: 20px;
+}
+
+/* Secciones individuales del dashboard */
+.dashboard-section {
+    flex: 1; /* Esto permitirá que las secciones crezcan equitativamente */
+    width: 30%;
+    background-color: #f2f2f2; /* Gris claro como color secundario */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 10px; /* Añade un margen para separar las secciones */
+}
+
+/* Títulos de las secciones del dashboard */
+.dashboard-section h2 {
+    color: #003366; /* Azul oscuro como color primario */
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* Lista de elementos dentro de las secciones del dashboard */
+.dashboard-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Elementos individuales de la lista */
+.dashboard-section ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Último elemento de la lista sin borde inferior */
+.dashboard-section ul li:last-child {
+    border-bottom: none;
+}
+
+/* Estilos para la tabla */
+#historialComprasTable {
+    width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+    table-layout: fixed; /* Utiliza un diseño de tabla fijo para igualar el ancho de las columnas */
+}
+
+#historialComprasTable th {
+    text-align: left; /* Alinea el texto de los encabezados a la izquierda */
+    width: 20%; /* Asigna un ancho igual a cada encabezado si tienes 5 columnas */
+}
+
+/*estilos para el login */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #003366; /* Azul oscuro como color primario */
+
+    border-top-left-radius: 10px; /* Esquina superior izquierda  */
+    border-top-right-radius: 10px; /* Esquina superior derecha  */
+    border-bottom-left-radius: 10px; /* Esquina inferior izquierda  */
+    border-bottom-right-radius: 10px; /* Esquina inferior derecha  */
+}
+
+.form-group label {
+    display: block;
+    color: #003366; /* Azul oscuro para las etiquetas */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #003366; /* Color del borde por defecto */
+}
+
+.form-group input:focus {
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+    box-shadow: 0 0 0 2px #009688, /* Espacio interno */
+    0 0 0 4px #FFFFFF, /* Borde intermedio */
+    0 0 0 4.5px #003366; /* Borde más externo */
+}
+
+.form-group {
+    vertical-align: top; /* Alinea los elementos verticalmente */
+    margin-bottom: auto; /* Añade un margen inferior para separar los elementos */
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 1.2; /* Ajusta según tus preferencias */
+}
+
+
+.form-group button,
+.form-group a {
+    width: 140px;
+    height: 50px;
+}
+
+/*Estilo para texto de ayuda en formularios */
+.text-danger {
+    margin-top: 0; /* Ajusta según tus preferencias */
+    line-height: normal;
+}
+
+/* Estilo para los enlaces sin subrayado */
+.text-primary {
+    color: blue;
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.login-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #003366; /* Azul oscuro como color primario */
+    border-top-left-radius: 10px; /* Esquina superior izquierda  */
+    border-top-right-radius: 10px; /* Esquina superior derecha  */
+    border-bottom-left-radius: 10px; /* Esquina inferior izquierda  */
+    border-bottom-right-radius: 10px; /* Esquina inferior derecha  */
+}
+
+.custom-submit {
+    background-color: #009688; /* Verde esmeralda como color de acento */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+    /* width: 140px; */ /* Ancho fijo para todos los botones */
+    height: 50px; /* Alto fijo para todos los botones */
+}
+
+.submit-accent {
+    background-color: #009688; /* Verde esmeralda como color de acento */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-accent {
+    background-color: #009688; /* Verde esmeralda como color de acento */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* width: 140px; */ /* Ancho fijo para todos los botones */
+    height: 50px; /* Alto fijo para todos los botones */
+    text-align: center; /* Asegura que el texto esté centrado */
+    line-height: 50px; /* Centra el texto verticalmente */
+    display: inline-flex; /* Usa inline-flex para alinear el texto dentro del botón */
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: center; /* Centra el texto horizontalmente */
+}
+
+/*ajuste de posicion de botones*/
+.submit-container {
+    position: absolute;
+    bottom: 20px; /*Ajusta la distancia desde el fondo */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+}

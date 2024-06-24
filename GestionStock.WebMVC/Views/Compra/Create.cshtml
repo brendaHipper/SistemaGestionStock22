@@ -1,0 +1,95 @@
+﻿@using Stock.Core.Entidades;
+@model CompraViewModel
+@{
+    ViewData["Title"] = "Registro de Compra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var backgroundImage = "~/images/Compras.png";
+}
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Producto" asp-action="Index">GestionStock.WebMVC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Producto" asp-action="Index">Stock</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Compra" asp-action="Index">Compras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Venta" asp-action="Index">Ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Logout">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<div class="login-container">
+    <div class="login-info">        
+        <form asp-action="Create" asp-controller="Compra" method="post">
+
+            <h1>Registro de Compra</h1>
+            <div class="contenedor">
+                <div class="form-group">
+                    <select asp-for="ProductoId" class="form-control" asp-items="Model.Productos">
+                        <option value="">Seleccione un producto</option>
+                    </select>
+                    <span asp-validation-for="ProductoId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Fecha"></label>
+                    <input asp-for="Fecha" class="form-control" type="date" />
+                    <span asp-validation-for="Fecha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cantidad"></label>
+                    <input asp-for="Cantidad" class="form-control" />
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UsuarioId"></label>
+                    <input asp-for="UsuarioId" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="UsuarioId" class="text-danger"></span>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary btn-lg " style="width: 140px;">Registrar</button>
+                <a asp-controller="Compra" asp-action="Index" class="btn btn-secondary btn-lg" style="width: 140px;">Cancelar</a>
+            </div>
+        </form>
+    </div>
+    <div class="login-image" style="background-color: #ccc;">
+        <img src="@Url.Content(backgroundImage)" alt="Login Image" width="400" />
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}

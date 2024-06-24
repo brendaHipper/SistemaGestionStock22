@@ -1,0 +1,19 @@
+﻿@using Stock.Core.Entidades;
+@model Compra
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+<div>
+    <h4>Eliminar compra?</h4>
+    <div>
+        <h3>@Model.CompraId</h3>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="CompraId" asp-controller="Compra" />
+            <button type="submit" class="btn btn-danger" asp-action="Index">Delete</button>
+            <a asp-controller="Compra" asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

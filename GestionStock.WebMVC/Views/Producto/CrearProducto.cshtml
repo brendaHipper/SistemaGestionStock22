@@ -1,0 +1,107 @@
+﻿@using Stock.Core.Entidades;
+@model ProductoViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var backgroundImage = "~/images/Gerente.jpg";
+}
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Producto" asp-action="Index">GestionStock.WebMVC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Producto" asp-action="Index">Stock</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Compra" asp-action="Index">Compras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Venta" asp-action="Index">Ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Logout">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="login-container">
+    <div class="login-info">
+        <h1>Crear Producto</h1>
+        <form asp-action="CrearProducto" asp-controller="Producto">
+            <div class="contenedor" style="padding-bottom: 20px;">
+                <div class="form-group">
+                    <label>Nombre del Producto</label>
+                    <input class="form-control" asp-for="Nombre" type="text" />
+                </div>
+                <div class="mb-3">
+                    <input class="form-check-input" asp-for="Habilitado" type="checkbox" id="chkActivo" />
+                    <label class="form-check-label" for="chkActivo">Activo</label>
+                </div>
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <select asp-for="CategoriaId" class="form-control" asp-items="Model.Categorias">
+                        <option value="">Seleccione una categoría</option>
+                    </select>
+                    <span asp-validation-for="CategoriaId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-lg " style="width: 140px;" type="submit">Guardar</button>
+                    <a asp-controller="Producto" asp-action="Index" class="btn btn-secondary btn-lg" style="width: 140px;">Volver</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="login-image">
+        <img src="@Url.Content(backgroundImage)" alt="Login Image" width="400" />
+    </div>
+</div>
+
+
+
+<style>
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px;
+        background-color: #003366; /* Azul oscuro como color primario */
+        border-top-left-radius: 10px; /* Esquina superior izquierda  */
+        border-top-right-radius: 10px; /* Esquina superior derecha  */
+        border-bottom-left-radius: 10px; /* Esquina inferior izquierda  */
+        border-bottom-right-radius: 10px; /* Esquina inferior derecha  */
+    }
+
+
+    .col-sm-8{
+        flex-basis: 50%;
+        height: 500px; /* Ajusta esta altura para que coincida con la altura deseada */
+        background-color: #f2f2f2; /* Gris claro como color secundario */
+        padding: 40px;
+        border-radius: 10px;
+        border-top-left-radius: 10px; /* Esquina superior izquierda redondeada */
+        border-top-right-radius: 0; /* Esquina superior derecha recta */
+        border-bottom-left-radius: 10px; /* Esquina inferior izquierda redondeada */
+        border-bottom-right-radius: 0; /* Esquina inferior derecha recta */
+    }
+
+    .mb-3 {
+        vertical-align: top; /* Alinea los elementos verticalmente */
+        margin-bottom: auto; /* Añade un margen inferior para separar los elementos */
+        flex-direction: column;
+        justify-content: space-between;
+        line-height: 1.2; /* Ajusta según tus preferencias */
+    }
+
+</style>
