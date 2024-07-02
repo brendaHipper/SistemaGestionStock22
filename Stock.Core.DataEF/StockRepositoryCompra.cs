@@ -19,10 +19,25 @@ namespace Stock.Core.DataEF
             // CONSULTA CON LINQ
             using (var db = new StockContext(_config))
             {
-                return db.Compras
-                    .Include(c => c.Producto)
-                    .Include(c => c.Usuario)
-                    .ToList();
+                //return db.Compras
+                //    .Include(c => c.Producto)
+                //    .Include(c => c.Usuario)
+                //    .ToList();
+                // <<:::::::::::: Optimización de la Consulta >>
+                var producto = (from c in db.Compras
+                           join p in db.Productos on c.ProductoId equals p.ProductoId
+                           join u in db.Usuarios on c.UsuarioId equals u.UsuarioId
+                           where c.ProductoId == p.ProductoId
+                           
+                           select new Compra
+                           {
+                               CompraId = c.CompraId,
+                               Fecha = c.Fecha,
+                               Cantidad = c.Cantidad,
+                               Producto = p,
+                               Usuario = u,
+                           }).ToList();
+                return producto;
             }
         }
 
